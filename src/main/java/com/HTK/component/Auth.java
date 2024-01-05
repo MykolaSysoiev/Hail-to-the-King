@@ -3,7 +3,7 @@ package main.java.com.HTK.component;
 import main.java.com.HTK.Main;
 
 public class Auth {
-    private  static String PASSWORD = "d";
+    private  static final String PASSWORD = "d";
     public static boolean auth() {
         boolean passwordAccepted = false;
         for (byte i=0; i<3; i++){

@@ -6,8 +6,8 @@ import main.java.com.HTK.service.ClientService;
 import main.java.com.HTK.service.StudentService;
 
 public class ApplicationRunner {
-    private ClientService clientservice = new ClientService();
-    private StudentService studentService = new StudentService();
+    private final ClientService clientservice = new ClientService();
+    private final StudentService studentService = new StudentService();
     public void run () {
         if (Auth.auth()) {
             Client client = clientservice.registerNewClient();
@@ -17,6 +17,7 @@ public class ApplicationRunner {
                 client.setStudent(student);
                 student.setPayersName(client.getFirstName()+" "+ client.getLastName());
                 System.out.println("Student has been added.");
+                System.out.println(client);
             }
         }
     }

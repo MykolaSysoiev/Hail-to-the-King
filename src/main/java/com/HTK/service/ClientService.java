@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ClientService {
-    private static String emailPattern = "^\\S+@\\S+\\.\\S+$";
+    private static final String emailPattern = "^\\S+@\\S+\\.\\S+$";
 
     public Client registerNewClient() {
         Client client = null;

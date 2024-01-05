@@ -5,7 +5,7 @@ import main.java.com.HTK.model.Student;
 import main.java.com.HTK.model.StudentAdvanced;
 
 public class StudentService {
-    private static String advancedType = "Advanced";
+    private static final String advancedType = "Advanced";
     public Student registerNewStudent(){
         Student student =new Student();
 
