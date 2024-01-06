@@ -1,6 +1,6 @@
 package main.java.com.HTK.model;
 
-public class Student {
+public abstract class Student {
     private String englishLevel;
     private String reading;
     private String listening;

@@ -3,43 +3,27 @@ package main.java.com.HTK.service;
 import main.java.com.HTK.Main;
 import main.java.com.HTK.model.Student;
 import main.java.com.HTK.model.StudentAdvanced;
+import main.java.com.HTK.model.StudentIntermediate;
 
 public class StudentService {
     private static final String advancedType = "Advanced";
+    private static final String intermediateType = "Intermediate";
     public Student registerNewStudent(){
-        Student student =new Student();
+        Student student =null;
 
         System.out.print("Student`s level of English: ");
         String englishLevel = Main.Scanner.nextLine();
-        if (advancedType.equals(englishLevel)) {
-            student = buildStudentAdvanced();
-        } else {
+        if (advancedType.equals(englishLevel)|| intermediateType.equals(englishLevel)) {
             student = buildStudent(englishLevel);
+        } else {
+            System.out.println("Sorry, we don`t have courses for "+englishLevel+" level");;
 
         }
         return student;
     }
 
-    private StudentAdvanced buildStudentAdvanced() {
-        Student student = buildStudent(advancedType);
-        StudentAdvanced studentAdvanced = studentToAdvancedStudent(student);
-        System.out.print("Speaking: ");
-        studentAdvanced.setSpeaking(Main.Scanner.nextLine());
-        return studentAdvanced;
-    }
-
-    private StudentAdvanced studentToAdvancedStudent(Student student) {
-        StudentAdvanced studentAdvanced = new StudentAdvanced();
-        studentAdvanced.setReading(student.getReading());
-        studentAdvanced.setListening(student.getListening());
-        studentAdvanced.setVocabulary(student.getVocabulary());
-        studentAdvanced.setGrammar(student.getGrammar());
-        studentAdvanced.setWriting(student.getWriting());
-        return studentAdvanced;
-    }
-
     private Student buildStudent(String englishLevel) {
-        Student student = new Student();
+        Student student = englishLevel.equals(intermediateType) ? new StudentIntermediate() : new StudentAdvanced();
         student.setEnglishLevel(englishLevel);
 
         System.out.print("Reading: ");
@@ -56,6 +40,10 @@ public class StudentService {
 
         System.out.print("Writing: ");
         student.setWriting(Main.Scanner.nextLine());
+        if (englishLevel.equals(advancedType)) {
+            System.out.print("Speaking: ");
+            ((StudentAdvanced)student).setSpeaking(Main.Scanner.nextLine());
+        }
 
         return student;
     }

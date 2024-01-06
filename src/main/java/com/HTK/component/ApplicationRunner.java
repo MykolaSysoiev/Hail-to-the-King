@@ -14,9 +14,10 @@ public class ApplicationRunner {
             if (client != null) {
                 System.out.println("Adding a new student");
                 Student student = studentService.registerNewStudent();
-                client.setStudent(student);
-                student.setPayersName(client.getFirstName()+" "+ client.getLastName());
-                System.out.println("Student has been added.");
+                if (student != null) {
+                    client.setStudent(student);
+                    student.setPayersName(client.getFirstName()+" "+ client.getLastName());
+                    System.out.println("Student has been added.");}
                 System.out.println(client);
             }
         }
