@@ -41,8 +41,9 @@ public class StudentService {
         System.out.print("Writing: ");
         student.setWriting(Main.Scanner.nextLine());
         if (englishLevel.equals(advancedType)) {
-            System.out.print("Speaking: ");
-            ((StudentAdvanced)student).setSpeaking(Main.Scanner.nextLine());
+            System.out.print("Speaking: C1,C2 (including accents)");
+            String speaking = Main.Scanner.nextLine();
+            ((StudentAdvanced)student).setSpeaking(StudentAdvanced.Speaking.valueOf(speaking));
         }
 
         return student;
