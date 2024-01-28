@@ -1,6 +1,10 @@
 package main.java.com.HTK.model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public abstract class Student {
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"); //formatted in ISO format
     private String englishLevel;
     private String reading;
     private String listening;
@@ -8,6 +12,20 @@ public abstract class Student {
     private String grammar;
     private String writing;
     private String payersName;
+    private final LocalDateTime registrationDate = LocalDateTime.now();
+    @Override
+    public String toString () {
+        return "Student {"
+                +"average english level = "+ englishLevel
+                +", reading level = " +reading
+                +", listening level = "+listening
+                +", vocabulary = "+vocabulary
+                +", grammar level = "+grammar
+                +", writing level = "+writing
+                +", payers name ="+payersName
+                +", registration date ="+registrationDate.format(formatter)
+                +"}";
+    }
 
     public String getEnglishLevel() {
         return englishLevel;
