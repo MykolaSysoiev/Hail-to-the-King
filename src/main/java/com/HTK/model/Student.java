@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public abstract class Student {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"); //formatted in ISO format
+    private String studentName;
     private String englishLevel;
     private String reading;
     private String listening;
@@ -16,7 +17,8 @@ public abstract class Student {
     @Override
     public String toString () {
         return "Student {"
-                +"average english level = "+ englishLevel
+                +"Student's name = "+ studentName
+                +", average english level = "+ englishLevel
                 +", reading level = " +reading
                 +", listening level = "+listening
                 +", vocabulary = "+vocabulary
@@ -27,10 +29,11 @@ public abstract class Student {
                 +"}";
     }
 
+    public String getStudentName() {return studentName;}
+    public void setStudentName(String studentName) {this.studentName = studentName;}
     public String getEnglishLevel() {
         return englishLevel;
     }
-
     public void setEnglishLevel(String englishLevel) {
         this.englishLevel = englishLevel;
     }

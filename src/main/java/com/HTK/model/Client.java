@@ -1,19 +1,21 @@
 package main.java.com.HTK.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Client {
     private String firstName;
     private String lastName;
     private String email;
-    private Student student;
+    private List<Student> students = new ArrayList<>();
     @Override
     public String toString() {
         return "Client {"
                 +"\n\tfirstName = " + firstName
                 + ", lastName = " + lastName
                 + ", email = "+ email
-                + ", \n\tstudent = " + student
+                + ", \n\tstudents = " + students
                 +"\n}";
     }
 
@@ -25,12 +27,12 @@ public class Client {
         return Objects.equals(firstName, client.firstName)
                 && Objects.equals(lastName, client.lastName)
                 && Objects.equals(email, client.email)
-                && Objects.equals(student, client.student);
+                && Objects.equals(students, client.students);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, email, student);
+        return Objects.hash(firstName, lastName, email, students);
     }
 
     public void setFirstName(String firstName) {
@@ -57,11 +59,14 @@ public class Client {
         return email;
     }
 
-    public Student getStudent() {
-        return student;
+    public List<Student> getStudent() {
+        return students;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudent(List<Student> student) {
+        this.students = student;
+    }
+    public void addStudent (Student student) {
+        students.add(student);
     }
 }
