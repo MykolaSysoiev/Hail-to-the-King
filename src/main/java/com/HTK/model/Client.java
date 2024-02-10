@@ -9,12 +9,14 @@ public class Client {
     private String lastName;
     private String email;
     private List<Student> students = new ArrayList<>();
+    private Location location;
     @Override
     public String toString() {
         return "Client {"
                 +"\n\tfirstName = " + firstName
                 + ", lastName = " + lastName
                 + ", email = "+ email
+                +", location ="+ location
                 + ", \n\tstudents = " + students
                 +"\n}";
     }
@@ -59,14 +61,26 @@ public class Client {
         return email;
     }
 
-    public List<Student> getStudent() {
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setStudent(List<Student> student) {
+    public void setStudents(List<Student> student) {
         this.students = student;
     }
     public void addStudent (Student student) {
         students.add(student);
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public enum Location {
+        Kyiv, Odesa, Mykolaiv
     }
 }

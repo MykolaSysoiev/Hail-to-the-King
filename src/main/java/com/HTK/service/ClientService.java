@@ -28,9 +28,12 @@ public class ClientService {
         Client client = new Client();
         client.setEmail(email);
         System.out.println("First name: ");
-        client.setLastName(Main.Scanner.nextLine());
+        client.setFirstName(Main.Scanner.nextLine());
         System.out.println("Last name: ");
         client.setLastName(Main.Scanner.nextLine());
+        System.out.println("Location: ");
+        String location = Main.Scanner.nextLine();
+        client.setLocation(Client.Location.valueOf(location));
         return client;
     }
 
