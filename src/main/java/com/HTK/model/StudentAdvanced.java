@@ -2,8 +2,22 @@ package main.java.com.HTK.model;
 
 public class StudentAdvanced extends Student {
     private Speaking speaking; //Only for advanced students
-    public StudentAdvanced(){
+    public StudentAdvanced(){    }
 
+    @Override
+    public String toString () {
+        return "Student {"
+                +"Student's name = "+ getStudentName()
+                +", average english level = "+ getEnglishLevel()
+                +", reading level = " +getReading()
+                +", listening level = "+getListening()
+                +", vocabulary = "+getVocabulary()
+                +", grammar level = "+getGrammar()
+                +", writing level = "+getWriting()
+                +", speaking level ="+getSpeaking()
+                +", payers name ="+getPayersName()
+                +", registration date ="+getRegistrationDate().format(formatter)
+                +"}";
     }
     public StudentAdvanced(Speaking speaking) {
         this.speaking=speaking;
@@ -32,6 +46,15 @@ public class StudentAdvanced extends Student {
         private final int Value;
         Speaking(int Value) {
             this.Value=Value;
+        }
+        public static Speaking fromString(String value) {
+            for (Speaking speaking1 : values()) {
+                if (speaking1.toString().equals(value)) {
+                    return speaking1;
+                }
+            }
+            System.out.println("Unable to parse speaking level "+value+" using default speaking level: "+UNKNOWN);
+            return UNKNOWN;
         }
         public int getValue(){
             return Value;

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public abstract class Student {
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"); //formatted in ISO format
+    static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"); //formatted in ISO format
     private String studentName;
     private String englishLevel;
     private String reading;
@@ -84,5 +84,9 @@ public abstract class Student {
 
     public void setPayersName(String payersName) {
         this.payersName = payersName;
+    }
+
+    public LocalDateTime getRegistrationDate() {
+        return registrationDate;
     }
 }

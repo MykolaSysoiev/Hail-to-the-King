@@ -16,7 +16,7 @@ public class Client {
                 +"\n\tfirstName = " + firstName
                 + ", lastName = " + lastName
                 + ", email = "+ email
-                +", location ="+ location
+                +", location = "+ location
                 + ", \n\tstudents = " + students
                 +"\n}";
     }
@@ -81,6 +81,6 @@ public class Client {
     }
 
     public enum Location {
-        Kyiv, Odesa, Mykolaiv
+        Kyiv, Odesa, Mykolaiv, UNKNOWN
     }
 }
